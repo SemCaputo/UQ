@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Quest - Chapter 4</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="terminal">
+    <div id="output"></div>
+ <div id="typewriter" data-story="You stand your ground and prepare to fight!\nRoll the dice to determine your attack strength."></div>
+
+    <div id="dice-container" class="hidden">
+      <div id="dice" tabindex="0">🎲 Click or press Enter to roll</div>
+    </div>
+    <button id="dice-toggle">Show Dice</button>
+
+    <div id="choices">
+      <button onclick="location.href='chapter8.html'">Victory!</button>
+      <button onclick="location.href='chapter9.html'">Defeat...</button>
+    </div>
+  </div>
+
+  <script src="layout.js"></script>
+  <script src="typewriter.js"></script>
+  <script src="dice.js"></script>
+</body>
+</html>

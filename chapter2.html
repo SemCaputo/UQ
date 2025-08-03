@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Quest - Chapter 2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="crt-overlay"></div>
+
+  <main role="main" class="terminal">
+    <h1 class="title flicker">CHAPTER 2</h1>
+
+    <!-- Typewriter Story Text -->
+   <div id="typewriter" data-story="You follow the left path, winding through twisted trees. Suddenly, a wild creature leaps out! Roll the dice to determine your fate..."></div>
+
+    <!-- Dice Interaction -->
+    <div id="dice-container" class="hidden">
+      <div id="dice" tabindex="0" role="button" aria-label="Roll the dice">🎲 Click or press Enter to roll</div>
+    </div>
+    <button id="dice-toggle" class="choice-button">🎲 Show Dice</button>
+
+    <!-- Choices -->
+    <div id="choices">
+      <button class="choice-button" onclick="location.href='chapter4.html'">⚔️ Fight the creature</button>
+      <button class="choice-button" onclick="location.href='chapter5.html'">🏃‍♂️ Run away</button>
+    </div>
+
+    <!-- Mute Toggle -->
+    <button id="muteToggle" class="mute-button">🔊 Mute</button>
+  </main>
+
+  <!-- Audio Elements -->
+  <audio id="click-sound" src="assets/click.mp3"></audio>
+  <audio id="coin-sound" src="assets/coin.mp3"></audio>
+  <audio id="theme-sound" src="assets/theme.mp3" loop autoplay></audio>
+
+  <!-- Scripts -->
+  <script src="layout.js"></script>
+  <script src="typewriter.js"></script>
+  <script src="dice.js"></script>
+</body>
+</html>

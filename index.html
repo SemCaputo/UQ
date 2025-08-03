@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="crt-overlay"></div>
+
+  <main role="main" class="terminal">
+    <h1 class="title flicker">ULTIMATE QUEST</h1>
+
+    <!-- ASCII Art -->
+    <pre id="ascii-art" class="ascii">
+____________________________________________________
+T ================================================= |T
+| ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|[L
+| __________________________________________________[|
+|I __==___________  ___________     .  ,. _ .   __  T|
+||[_j  L_I_I_I_I_j  L_I_I_I_I_j    /|/V||(g/|   ==  l|
+lI _______________________________  _____  _________I]
+ |[__I_I_I_I_I_I_I_I_I_I_I_I_I_I_] [__I__] [_I_I_I_]| 
+ |[___I_I_I_I_I_I_I_I_I_I_I_I_L  I   ___   [_I_I_I_]| 
+ |[__I_I_I_I_I_I_I_I_I_I_I_I_I_L_I __I_]_  [_I_I_T || 
+ |[___I_I_I_I_I_I_I_I_I_I_I_I____] [_I_I_] [___I_I_j| 
+ | [__I__I_________________I__L_]                   | 
+ |                                                  | 
+l__________________________________________________j
+    </pre>
+
+    <!-- Typewriter Welcome Message -->
+    <div id="typewriter" data-story="Welcome, adventurer...Your quest begins now. Prepare yourself for danger, mystery, and glory."></div>
+
+    <!-- Buttons -->
+    <div id="choices">
+      <button id="start-btn" class="start-button">🎮 Press Start</button>
+      <button id="muteToggle" class="mute-button">🔊 Mute</button>
+    </div>
+  </main>
+
+  <!-- Audio Elements -->
+  <audio id="theme-sound" src="assets/theme.mp3" loop></audio>
+  <audio id="arcade-hum" src="assets/arcade-hum.mp3" loop></audio>
+  <audio id="coin-sound" src="assets/coin.mp3"></audio>
+  <audio id="click-sound" src="assets/click.mp3"></audio>
+
+  <!-- Scripts -->
+  <script src="typewriter.js"></script>
+  <script src="layout.js"></script>
+
+  <!-- Sound & Button Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeSound = document.getElementById("theme-sound");
+      const arcadeHum = document.getElementById("arcade-hum");
+      const coinSound = document.getElementById("coin-sound");
+      const startBtn = document.getElementById("start-btn");
+      const muteToggle = document.getElementById("muteToggle");
+
+      // Autoplay sounds after first user interaction
+      function unlockAudio() {
+        [themeSound, arcadeHum].forEach(sound => {
+          if (sound) {
+            sound.play().catch(() => {});
+          }
+        });
+        document.removeEventListener("click", unlockAudio);
+      }
+      document.addEventListener("click", unlockAudio);
+
+      // Play coin sound on Start button click
+      if (startBtn && coinSound) {
+        startBtn.addEventListener("click", () => {
+          coinSound.currentTime = 0;
+          coinSound.play();
+          setTimeout(() => {
+            location.href = 'chapter1.html';
+          }, 300); // Delay to let sound play
+        });
+      }
+
+      // Mute toggle
+      if (muteToggle) {
+        muteToggle.addEventListener("click", () => {
+          const isMuted = themeSound.muted;
+          [themeSound, arcadeHum, coinSound].forEach(sound => {
+            if (sound) sound.muted = !isMuted;
+          });
+          muteToggle.textContent = isMuted ? "🔊 Mute" : "🔈 Unmute";
+        });
+      }
+    });
+  </script>
+</body>
+</html>

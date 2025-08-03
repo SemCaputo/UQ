@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Quest - Chapter 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="crt-overlay"></div>
+
+  <main role="main" class="terminal">
+    <h1 class="title flicker">CHAPTER 1</h1>
+
+    <!-- Typewriter Story Text -->
+    <div id="typewriter" data-story="You awaken in a dark forest. The air is thick with mist and mystery.A path splits ahead of you..."></div>
+
+    <!-- Choices -->
+    <div id="choices">
+      <button class="choice-button" onclick="location.href='chapter2.html'">🌲 Take the left path</button>
+      <button class="choice-button" onclick="location.href='chapter3.html'">🌑 Take the right path</button>
+    </div>
+
+    <!-- Mute Toggle -->
+    <button id="muteToggle" class="mute-button">🔊 Mute</button>
+  </main>
+
+  <!-- Audio Elements -->
+  <audio id="click-sound" src="assets/click.mp3"></audio>
+  <audio id="coin-sound" src="assets/coin.mp3"></audio>
+  <audio id="theme-sound" src="assets/theme.mp3" loop autoplay></audio>
+
+  <!-- Scripts -->
+  <script src="layout.js"></script>
+  <script src="typewriter.js"></script>
+  <script src="dice.js"></script>
+</body>
+</html>

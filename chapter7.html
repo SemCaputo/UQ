@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Quest - Chapter 7</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="terminal">
+    <div id="output"></div>
+    <div data-story="You choose not to engage with the cloaked figure.\nAs you walk away, the forest seems to shift around you...\nRoll the dice to see where you end up."></div>
+
+    <div id="dice-container" class="hidden">
+      <div id="dice" tabindex="0">🎲 Click or press Enter to roll</div>
+    </div>
+    <button id="dice-toggle">Show Dice</button>
+
+    <div id="choices">
+      <button onclick="location.href='chapter14.html'">You find a hidden grove</button>
+      <button onclick="location.href='chapter15.html'">You get hopelessly lost</button>
+    </div>
+  </div>
+
+  <script src="layout.js"></script>
+  <script src="typewriter.js"></script>
+  <script src="dice.js"></script>
+</body>
+</html>
